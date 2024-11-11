@@ -1,38 +1,186 @@
-.App {
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #f0f8ff, #add8e6, #b0e0e6);
+  background-size: 600% 600%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+/* Animation for the background */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Main container styling */
+.app-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
+  z-index: 1;
+  animation: slideIn 1s ease-out;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Slide-in animation for the app container */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+  font-size: 2rem;
+  color: #444;
+  margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* Fade-in animation for the heading */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Form Styling */
+.student-form {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  margin-bottom: 30px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* Fade-in from below animation for the form */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.student-form input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.student-form input:focus {
+  outline: none;
+  border-color: #4c38cf;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+/* Submit Button */
+.submit-button {
+  padding: 12px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #000000;
+  transform: scale(1.05);
+}
+
+/* List Styling */
+.student-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.student-item {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #fafafa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 15px;
+  font-size: 16px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  height: 70px;  /* Fixed height for uniform size */
+  overflow: hidden;
+}
+
+/* Ensures text doesn't overflow */
+.student-item span {
+  white-space: nowrap;  /* Prevents wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;  /* Adds '...' for overflowing text */
+}
+
+.student-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Edit & Delete Buttons container */
+.button-container {
+  display: flex;
+  gap: 10px;  /* Adds space between buttons */
+}
+
+/* Edit & Delete Buttons */
+.edit-button,
+.delete-button {
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  width: 80px;  /* Optional: fixed width for uniform button size */
+}
+
+.edit-button {
+  background-color: #2196F3;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.edit-button:hover {
+  background-color: #1976D2;
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #e53935;
+  transform: translateY(-2px);
 }
